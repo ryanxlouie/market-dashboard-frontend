@@ -19,10 +19,15 @@ const NavigationCard = (props) => {
     pic,
     bodyTitle,
     bodyText,
+    link,
+    changePage,
   } = props;
 
   return (
-    <Card className={classes.card}>
+    <Card 
+      className={classes.card}
+      onClick={() => changePage(link)}
+    >
       <CardActionArea>
         <CardMedia
           className={classes.media}

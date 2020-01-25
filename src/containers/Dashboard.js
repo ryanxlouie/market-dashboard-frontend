@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 
-
 /* Stylesheets */
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -120,7 +119,7 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            Ryan's Market Dashboard
           </Typography>
         </Toolbar>
       </AppBar>
@@ -165,7 +164,9 @@ export default function Dashboard() {
             <Route
               path="/Bea"
               render={props => 
-                <Bea/>
+                <Bea
+                  pathProps={props}
+                />
               }
             />
             <Route

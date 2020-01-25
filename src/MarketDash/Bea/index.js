@@ -5,8 +5,20 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 /* Components */
 import MenuPage from './MenuPage';
+import GrossDomesticProductPage from './GrossDomesticProductPage';
 
 class Bea extends Component {
+  constructor(props) {
+    super(props);
+
+    this.changePage = this.changePage.bind(this);
+  }
+
+  changePage(link) {
+    const { pathProps } = this.props;
+    pathProps.history.push(link);
+  }
+
   render() {
     return (
       <div>
@@ -14,7 +26,15 @@ class Bea extends Component {
           <Route
             path="/Bea/MenuPage"
             render={props => 
-              <MenuPage/>
+              <MenuPage
+                changePage={this.changePage}
+              />
+            }
+          />
+          <Route
+            path="/Bea/GrossDomesticProduct"
+            render={props => 
+              <GrossDomesticProductPage/>
             }
           />
           <Route
