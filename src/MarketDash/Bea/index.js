@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 /* Stylesheets */
-import { Grid, Paper } from '@material-ui/core';
+
+/* Components */
+import MenuPage from './MenuPage';
 
 class Bea extends Component {
   render() {
     return (
       <div>
-        <Grid container>
-          <Grid item xs={12}>
-            <Paper>
-              Graph here
-            </Paper>
-          </Grid>
-        </Grid>
-        <Grid container>
-          <Grid item xs={4}>
-            Cards go here
-          </Grid>
-        </Grid>
+        <Switch>
+          <Route
+            path="/Bea/MenuPage"
+            render={props => 
+              <MenuPage/>
+            }
+          />
+          <Route
+            path="Bea/Secondary"
+            render={props => 
+              <div>secondary</div>
+            }
+          />
+          <Redirect from="/Bea" to="/Bea/MenuPage" />
+        </Switch>
       </div>
     )
   }
