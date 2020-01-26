@@ -11,6 +11,7 @@ import { Drawer, AppBar, Toolbar, List, ListItem, ListItemIcon, ListItemText, Ty
 
 /* Components */
 import Bea from '../MarketDash/Bea';
+import AlphaVantage from '../MarketDash/AlphaVantage';
 import SampleTwo from '../MarketDash/SampleTwo';
 
 const drawerWidth = 240;
@@ -145,6 +146,14 @@ export default function Dashboard() {
               <ListItemText primary="BEA" />
             </ListItem>
           </Link>
+          <Link to="/AlphaVantage" style={{textDecoration: 'none', color: 'inherit'}}>
+            <ListItem button>
+              <ListItemIcon>
+                <EqualizerIcon />
+              </ListItemIcon>
+              <ListItemText primary="Alpha Vantage" />
+            </ListItem>
+          </Link>
           <Link to="/SampleTwo" style={{textDecoration: 'none', color: 'inherit'}}>
             <ListItem button>
               <ListItemIcon>
@@ -165,6 +174,14 @@ export default function Dashboard() {
               path="/Bea"
               render={props => 
                 <Bea
+                  pathProps={props}
+                />
+              }
+            />
+            <Route
+              path="/AlphaVantage"
+              render={props => 
+                <AlphaVantage
                   pathProps={props}
                 />
               }

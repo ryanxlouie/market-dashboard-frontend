@@ -2,15 +2,13 @@ import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-/* Library */
-import recessions from '../../../../lib/recessions';
-
 const LineGraph = (props) => {
   const {
-    gdpData,
+    stockData,
+    handleGraphClick,
   } = props;
 
-  let xAxis = gdpData.map(a => a['TimePeriod']);
+  let xAxis = stockData.map(a => a['date']);
   const options = {
     chart: {
       style: {
@@ -20,9 +18,12 @@ const LineGraph = (props) => {
     title: {
       text: ''
     },
+    subtitle: {
+      text: '* Click a point to change the time frame',
+      align: 'right'
+    },
     xAxis: {
       categories: xAxis,
-      plotBands: recessions.recessionPlotBands(xAxis),
     },
     yAxis: {
       title: {
@@ -31,8 +32,26 @@ const LineGraph = (props) => {
     },
     series: [{
       name: 'GDP',
-      data: gdpData.map(a => a['DataValue']),
+      data: stockData.map(a => a['open']),
     }],
+    plotOptions: {
+      series: {
+        cursor: 'pointer',
+        point: {
+          events: {
+            click: (e) => handleGraphClick(e)
+          }
+        },
+        allowPointSelect: true,
+        marker: {
+          states: {
+            select: {
+              enabled: true,
+            },
+          },
+        },
+      },
+    },
     credits: {
       enabled: false,
     },

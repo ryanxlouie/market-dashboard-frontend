@@ -1,11 +1,7 @@
-import axios from 'axios';
+import getStockTest from './Test';
+import getDailyStockData from './Daily';
 
-
-import { avApiKey } from '../routeConfig';
-
-export default async function getStockTest() {
-  const result = await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=${avApiKey}`);
-
-  console.log(result);
-  return (1);
+export default {
+  getStockTest,
+  getDailyStockData,
 }

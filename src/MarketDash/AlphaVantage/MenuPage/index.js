@@ -2,7 +2,7 @@ import React from 'react';
 
 /* Stylesheets */
 import { Grid } from '@material-ui/core';
-import GDPSamplePic from '../../../assets/images/gdp.JPG';
+import GDPSamplePic from '../../../assets/images/ironman.jpeg';
 
 /* Components */
 import NavigationCard from '../../components/NavigationCard';
@@ -18,9 +18,9 @@ const MenuPage = (props) => {
         <Grid item xs={4}>
           <NavigationCard
             pic={GDPSamplePic}
-            bodyTitle={'Gross Domestic Product'}
-            bodyText={'Gross Domestic Product'}
-            link={'/Bea/GrossDomesticProduct'}
+            bodyTitle={'Swing Tracker'}
+            bodyText={'See max loss and max gain from investing at a certain point in time'}
+            link={'/AlphaVantage/SwingTracker'}
             changePage={changePage}
           />
         </Grid>
