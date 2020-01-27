@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
 /* Stylesheets */
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, Paper, Select, MenuItem } from '@material-ui/core';
+import { toast } from 'react-toastify';
 
 /* Routes */
 import avRoutes from '../../../routes/AlphaVantageRoutes';
+
+/* Libraries */
+import stockTickers from '../../../lib/stockTickers';
 
 /* Components */
 import LineGraph from './components/LineGraph';
@@ -24,6 +28,7 @@ class SwingTracker extends Component {
     }
 
     this.handleGraphClick = this.handleGraphClick.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   componentDidMount() {
@@ -47,6 +52,25 @@ class SwingTracker extends Component {
     });
   }
 
+  handleSelect(e) {
+    avRoutes.getDailyStockData(true, e.target.value, 'compact')
+      .then(result => {
+        if (result === 'Cannot call api any longer') {
+          toast.info(result);
+        }
+        else {
+          this.setState({
+            stockTicker: e.target.value,
+            stockData: result,
+            chosenIndex: 0,
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
   render() {
     const { apiFinished, stockTicker, stockData, chosenIndex } = this.state;
     if (!apiFinished) {
@@ -59,9 +83,22 @@ class SwingTracker extends Component {
         <Grid container className="row-mimic">
           <Grid item xs={12}>
             <Paper style={{padding: '10px'}}>
-              <h4 style={{margin: '0px'}}>
-                {stockTicker} Open Data
-              </h4>
+              <Grid item xs={12}>
+                <Select 
+                  style={{minWidth: '120px', marginLeft: '15px'}}
+                  value={stockTicker}
+                  onChange={this.handleSelect}
+                >
+                  {stockTickers.map((stock, index) => (
+                    <MenuItem 
+                      value={stock.ticker}
+                      key={index}
+                    >
+                      {stock.label}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </Grid>
               <LineGraph
                 stockData={stockData['Daily Array']}
                 handleGraphClick={this.handleGraphClick}

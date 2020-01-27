@@ -27,11 +27,11 @@ const LineGraph = (props) => {
     },
     yAxis: {
       title: {
-        text: 'GDP (millions)'
+        text: 'Open Value'
       }
     },
     series: [{
-      name: 'GDP',
+      name: 'Open',
       data: stockData.map(a => a['open']),
     }],
     plotOptions: {
@@ -44,6 +44,7 @@ const LineGraph = (props) => {
         },
         allowPointSelect: true,
         marker: {
+          enabled: true,
           states: {
             select: {
               enabled: true,

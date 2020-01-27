@@ -718,8 +718,12 @@ export default async function getDailyStockData(realData, ticker, outputsize) {
     if (outputsize === 'full') {
       axiosString = axiosString + '&outputsize=full';
     }
-  
-    result = (await axios.get(axiosString)).data['Time Series (Daily)'];
+    
+    let res = await axios.get(axiosString);
+    if (res.data.hasOwnProperty('Note')) {
+      return ('Cannot call api any longer')
+    }
+    result = res.data['Time Series (Daily)'];
   }
   else {
     result = cloneDeep(sampleData);
