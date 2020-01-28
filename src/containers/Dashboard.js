@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import MenuIcon from '@material-ui/icons/Menu';
+import TimelineIcon from '@material-ui/icons/Timeline'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { Drawer, AppBar, Toolbar, List, ListItem, ListItemIcon, ListItemText, Typography, Divider, IconButton, Container, CssBaseline } from '@material-ui/core';
 
@@ -149,17 +150,9 @@ export default function Dashboard() {
           <Link to="/AlphaVantage" style={{textDecoration: 'none', color: 'inherit'}}>
             <ListItem button>
               <ListItemIcon>
-                <EqualizerIcon />
+                <TimelineIcon />
               </ListItemIcon>
               <ListItemText primary="Alpha Vantage" />
-            </ListItem>
-          </Link>
-          <Link to="/SampleTwo" style={{textDecoration: 'none', color: 'inherit'}}>
-            <ListItem button>
-              <ListItemIcon>
-                <EqualizerIcon />
-              </ListItemIcon>
-              <ListItemText primary="Sample Two" />
             </ListItem>
           </Link>
         </List>

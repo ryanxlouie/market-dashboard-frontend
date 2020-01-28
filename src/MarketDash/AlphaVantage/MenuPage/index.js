@@ -2,7 +2,9 @@ import React from 'react';
 
 /* Stylesheets */
 import { Grid } from '@material-ui/core';
+// import tempPic from '../../../assets/images/ironman.jpeg';
 import SwingTrackerPic from '../../../assets/images/swing.JPG';
+import IndustryPerformancePic from '../../../assets/images/industryperformance.JPG';
 
 /* Components */
 import NavigationCard from '../../components/NavigationCard';
@@ -14,7 +16,7 @@ const MenuPage = (props) => {
 
   return (
     <div>
-      <Grid container>
+      <Grid container spacing={1}>
         <Grid item xs={4}>
           <NavigationCard
             pic={SwingTrackerPic}
@@ -24,10 +26,14 @@ const MenuPage = (props) => {
             changePage={changePage}
           />
         </Grid>
-      </Grid>
-      <Grid container>
         <Grid item xs={4}>
-          Cards go here
+          <NavigationCard
+            pic={IndustryPerformancePic}
+            bodyTitle={'Industry Performance'}
+            bodyText={'See performance over time for each industry'}
+            link={'/AlphaVantage/IndustryPerformance'}
+            changePage={changePage}
+          />
         </Grid>
       </Grid>
     </div>

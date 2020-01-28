@@ -1,7 +1,7 @@
-import getStockTest from './Test';
 import getDailyStockData from './Daily';
+import getIndustryPerformance from './IndustryPerformance';
 
 export default {
-  getStockTest,
   getDailyStockData,
+  getIndustryPerformance,
 }

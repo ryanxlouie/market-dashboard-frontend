@@ -7,6 +7,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mater
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
+    height: 252,
   },
   media: {
     height: 140,

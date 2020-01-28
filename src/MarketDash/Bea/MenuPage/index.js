@@ -25,11 +25,6 @@ const MenuPage = (props) => {
           />
         </Grid>
       </Grid>
-      <Grid container>
-        <Grid item xs={4}>
-          Cards go here
-        </Grid>
-      </Grid>
     </div>
   )
 }
