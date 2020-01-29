@@ -8,12 +8,13 @@ import EqualizerIcon from '@material-ui/icons/Equalizer';
 import MenuIcon from '@material-ui/icons/Menu';
 import TimelineIcon from '@material-ui/icons/Timeline'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import WebIcon from '@material-ui/icons/Web';
 import { Drawer, AppBar, Toolbar, List, ListItem, ListItemIcon, ListItemText, Typography, Divider, IconButton, Container, CssBaseline } from '@material-ui/core';
 
 /* Components */
 import Bea from '../MarketDash/Bea';
 import AlphaVantage from '../MarketDash/AlphaVantage';
-import SampleTwo from '../MarketDash/SampleTwo';
+import YahooFinance from '../MarketDash/YahooFinance';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -155,6 +156,14 @@ export default function Dashboard() {
               <ListItemText primary="Alpha Vantage" />
             </ListItem>
           </Link>
+          <Link to="/YahooFinance" style={{textDecoration: 'none', color: 'inherit'}}>
+            <ListItem button>
+              <ListItemIcon>
+                <WebIcon />
+              </ListItemIcon>
+              <ListItemText primary="Yahoo Finance" />
+            </ListItem>
+          </Link>
         </List>
         <Divider />
         {/* <List>{secondaryListItems}</List> */}
@@ -180,9 +189,11 @@ export default function Dashboard() {
               }
             />
             <Route
-              path="/SampleTwo"
+              path="/YahooFinance"
               render={props => 
-                <SampleTwo/>
+                <YahooFinance
+                  pathProps={props}
+                />
               }
             />
             <Redirect from="/" to="/Bea" />
