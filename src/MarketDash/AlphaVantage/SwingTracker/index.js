@@ -4,9 +4,6 @@ import React, { Component } from 'react';
 import { Grid, Paper, Select, MenuItem } from '@material-ui/core';
 import { toast } from 'react-toastify';
 
-/* Routes */
-import avRoutes from '../../../routes/AlphaVantageRoutes';
-
 /* Libraries */
 import stockTickers from '../../../lib/stockTickers';
 
@@ -15,6 +12,9 @@ import LineGraph from './components/LineGraph';
 import ChosenDateCard from './components/ChosenDateCard';
 import MaxGainCard from './components/MaxGainCard';
 import MaxLossCard from './components/MaxLossCard';
+
+/* Routes */
+const alphaVantageRoutes = require('../../../routes/alphaVantageRoutes');
 
 class SwingTracker extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class SwingTracker extends Component {
   componentDidMount() {
     const { stockTicker } = this.state;
 
-    avRoutes.getDailyStockData(false, stockTicker, 'compact')
+    alphaVantageRoutes.getDailyPriceQuote(stockTicker)
       .then(result => {
         this.setState({
           apiFinished: true,
@@ -53,7 +53,7 @@ class SwingTracker extends Component {
   }
 
   handleSelect(e) {
-    avRoutes.getDailyStockData(true, e.target.value, 'compact')
+    alphaVantageRoutes.getDailyPriceQuote(e.target.value)
       .then(result => {
         if (result === 'Cannot call api any longer') {
           toast.info(result);

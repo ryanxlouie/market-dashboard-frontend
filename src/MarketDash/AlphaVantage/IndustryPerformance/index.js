@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 
 /* Routes */
-import avRoutes from '../../../routes/AlphaVantageRoutes';
+const alphaVantageRoutes = require('../../../routes/alphaVantageRoutes');
 
 class IndustryPerformance extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class IndustryPerformance extends Component {
   }
 
   componentDidMount() {
-    avRoutes.getIndustryPerformance(false)
+    alphaVantageRoutes.getIndustryPerformance()
       .then(result => {
         this.setState({
           apiFinished: true,

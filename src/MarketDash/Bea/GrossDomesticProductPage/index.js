@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 /* Stylesheets */
 import { Grid, Paper } from '@material-ui/core';
 
-/* Routes */
-import beaRoutes from '../../../routes/BeaRoutes';
-
 /* Components */
 import LineGraph from './components/LineGraph';
 import MetricCard from './components/MetricCard';
+
+/* Routes */
+const beAnalysisRoutes = require('../../../routes/beAnalysisRoutes')
 
 class GrossDomesticProductPage extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class GrossDomesticProductPage extends Component {
   }
 
   componentDidMount() {
-    beaRoutes.getGDP(false)
+    beAnalysisRoutes.getGDPAnalysis()
       .then(result => {
         this.setState({
           apiFinished: true,
