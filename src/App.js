@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 /* Stylesheets */
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css'
+import 'spinkit/spinkit.css';
 
 /* Components */
 import Dashboard from './containers/Dashboard';

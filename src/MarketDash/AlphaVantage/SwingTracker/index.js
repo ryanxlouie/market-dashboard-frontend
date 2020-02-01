@@ -23,7 +23,7 @@ class SwingTracker extends Component {
     this.state = {
       apiFinished: false,
       stockTicker: 'AAPL',
-      stockData: [],
+      stockData: {},
       chosenIndex: 0,
     }
 
@@ -74,7 +74,11 @@ class SwingTracker extends Component {
   render() {
     const { apiFinished, stockTicker, stockData, chosenIndex } = this.state;
     if (!apiFinished) {
-      return (<div></div>)
+      return (
+        <div style={{paddingTop: '100px'}}>
+          <div className="sk-plane sk-center"></div><h4 style={{textAlign: 'center'}}>Please wait...</h4>
+        </div>
+      )
     }
 
     console.log(this.state);

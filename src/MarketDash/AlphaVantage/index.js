@@ -11,7 +11,6 @@ class AlphaVantage extends Component {
     super(props);
 
     this.changePage = this.changePage.bind(this);
-    
   }
 
   changePage(link) {

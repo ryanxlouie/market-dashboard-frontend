@@ -32,7 +32,11 @@ class IndustryPerformance extends Component {
   render() {
     const { apiFinished, apiData } = this.state;
     if (!apiFinished) {
-      return (<div></div>)
+      return (
+        <div style={{paddingTop: '100px'}}>
+          <div className="sk-plane sk-center"></div><h4 style={{textAlign: 'center'}}>Please wait...</h4>
+        </div>
+      )
     }
 
     console.log(this.state);
