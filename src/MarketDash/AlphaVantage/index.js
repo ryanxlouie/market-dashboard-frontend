@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import MenuPage from './MenuPage';
 import SwingTracker from './SwingTracker';
 import IndustryPerformance from './IndustryPerformance';
+import TechnicalsCheckoff from './TechnicalsCheckoff';
 
 class AlphaVantage extends Component {
   constructor(props) {
@@ -40,6 +41,12 @@ class AlphaVantage extends Component {
             path="/AlphaVantage/IndustryPerformance"
             render={props => 
               <IndustryPerformance />
+            }
+          />
+          <Route
+            path="/AlphaVantage/TechnicalsCheckoff"
+            render={props => 
+              <TechnicalsCheckoff />
             }
           />
           <Redirect from="/AlphaVantage" to="/AlphaVantage/MenuPage" />

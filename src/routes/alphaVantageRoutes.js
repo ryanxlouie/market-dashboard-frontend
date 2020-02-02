@@ -13,3 +13,15 @@ export async function getIndustryPerformance() {
 
   return(result);
 }
+
+export async function getSimpleMovingAverage(ticker) {
+  let result = (await axios.get(`${ipAddress}/alphaVantageRoutes/SimpleMovingAverage/${ticker}`)).data.data;
+
+  return(result);
+}
+
+export async function getRelativeStrengthIndex(ticker) {
+  let result = (await axios.get(`${ipAddress}/alphaVantageRoutes/RelativeStrengthIndex/${ticker}`)).data.data;
+
+  return(result);
+}
