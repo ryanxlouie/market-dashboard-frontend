@@ -21,9 +21,10 @@ $ npm install
 $ npm run mock
 
 ```
-Running "npm run mock" tells the backend to return sample data stored as constants. In order to retrieve real data, you must run "npm run start" and have a config file at the top level. The config file should look like this:
+Running "npm run mock" tells the backend to return sample data stored as constants. In order to retrieve real data, you must run "npm run start" and have a config file at the top level of the backend project. The config file should look like this:
 
 ```javascript
+// config.js
 // Bureau of Economic Analysis
 const beaApiKey = 'abcdefg';
 
@@ -36,3 +37,8 @@ module.exports = {
 }
 ```
 You can get api keys for both websites from the sources below.
+
+## Data Sources
+- [AlphaVantage](https://www.alphavantage.co/)
+- [Bureau of Economic Analysis](https://www.bea.gov/)
+- [Yahoo Finance](https://finance.yahoo.com/)
