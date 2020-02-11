@@ -5,6 +5,7 @@ import { Grid } from '@material-ui/core';
 import tempPic from '../../../assets/images/ironman.jpeg';
 import SwingTrackerPic from '../../../assets/images/swing.JPG';
 import IndustryPerformancePic from '../../../assets/images/industryperformance.JPG';
+import TechnicalsPic from '../../../assets/images/technical.JPG';
 
 /* Components */
 import NavigationCard from '../../components/NavigationCard';
@@ -37,7 +38,7 @@ const MenuPage = (props) => {
         </Grid>
         <Grid item xs={4}>
           <NavigationCard
-            pic={tempPic}
+            pic={TechnicalsPic}
             bodyTitle={'Technicals Checkoff'}
             bodyText={'See which days pass various technical analysis benchmarks'}
             link={'/AlphaVantage/TechnicalsCheckoff'}

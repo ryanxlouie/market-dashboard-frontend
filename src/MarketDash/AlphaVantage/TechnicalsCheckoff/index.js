@@ -53,6 +53,12 @@ class TechnicalsCheckoff extends Component {
             stockTicker: e.target.value,
             stockData: result,
             chosenIndex: 0,
+            indicatorsObject: {
+              sma: false,
+              rsi: false,
+            },
+            smaArray: [],
+            rsiArray: [],
           });
         }
       })
